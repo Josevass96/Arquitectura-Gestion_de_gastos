@@ -40,6 +40,7 @@ export class DepartamentosComponent implements OnInit {
 
   crearDepartamento(): void {
     // Enviar los datos al backend para crear el nuevo departamento
+    console.log('Datos enviados:', this.nuevoDepto); 
     this.apiService.createDepartamento(this.nuevoDepto).subscribe({
       next: (response) => {
         console.log('Departamento creado con éxito');

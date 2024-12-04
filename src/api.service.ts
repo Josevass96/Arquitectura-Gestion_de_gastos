@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:5000';  // Cambia esta URL a la de tu servidor Flask
+  private apiUrl = 'http://127.0.0.1:5000';  // Cambia esta URL a la de tu servidor Flask
 
   constructor(private http: HttpClient) { }
 
