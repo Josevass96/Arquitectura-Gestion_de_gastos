@@ -4,7 +4,7 @@
   <div class="form-wrapper">
     <form (ngSubmit)="crearGastosComunes()">
       <div class="form-group">
-        <label for="mes">📅 Mes:</label>
+        <label for="mes">📅 Mes (Opcional):</label>
         <input
           type="number"
           id="mes"
@@ -12,9 +12,9 @@
           name="mes"
           min="1"
           max="12"
-          required
           placeholder="Ingrese el mes (1-12)"
         />
+        <small class="help-text">Déjelo vacío para generar los gastos para todo el año.</small>
       </div>
       <div class="form-group">
         <label for="anio">📆 Año:</label>
@@ -35,21 +35,29 @@
   <button class="btn-toggle" (click)="toggleGastosComunes()">👀 Ver Gastos Comunes</button>
 
   <div *ngIf="mostrarLista">
-    <h3 class="list-header">📑 Lista de Gastos Comunes</h3>
-    <ul class="gastos-list" *ngIf="gastosComunes.length > 0">
-      <li *ngFor="let gasto of gastosComunes" class="gasto-item">
-        <div><strong>📅 Mes/Año:</strong> {{ gasto.mes }}/{{ gasto.anio }}</div>
-        <div><strong>💵 Valor Pagado:</strong> {{ gasto.valor_pagado | currency }}</div>
-        <div><strong>🗓️ Fecha de Pago:</strong> {{ gasto.fecha_pago || 'No pagado' }}</div>
-        <div><strong>⚠️ Atrasado:</strong> {{ gasto.atrasado ? 'Sí' : 'No' }}</div>
-        <div><strong>🏠 Código Departamento:</strong> {{ gasto.cod_depto }}</div>
-        <div><strong>🔑 RUT:</strong> {{ gasto.rut || 'No asignado' }}</div>
-        <div><strong>👤 Nombre:</strong> {{ gasto.nombre || 'No asignado' }}</div>
-        <div><strong>📞 Teléfono:</strong> {{ gasto.telefono || 'No asignado' }}</div>
+    <h3 class="list-header">📑 Lista de Gastos Comunes por Departamento</h3>
+    <ul class="departamentos-list">
+      <li *ngFor="let codDepto of obtenerKeys(gastosPorDepartamento)" class="departamento-item">
+        <!-- Encabezado del departamento con flecha -->
+        <div class="departamento-header" (click)="toggleDepartamento(codDepto)">
+          <span class="arrow" [ngClass]="{ 'expanded': departamentosDesplegados[codDepto] }">
+            ▶
+          </span>
+          <strong>Departamento:</strong> {{ codDepto }}
+        </div>
+    
+        <!-- Lista de gastos comunes por departamento -->
+        <ul *ngIf="departamentosDesplegados[codDepto]" class="gastos-list">
+          <li *ngFor="let gasto of gastosPorDepartamento[codDepto]" class="gasto-item">
+            <div><strong>📅 Mes/Año:</strong> {{ gasto.mes }}/{{ gasto.anio }}</div>
+            <div><strong>💵 Valor Pagado:</strong> {{ gasto.valor_pagado | currency }}</div>
+            <div><strong>🗓️ Fecha de Pago:</strong> {{ gasto.fecha_pago || 'No pagado' }}</div>
+            <div><strong>⚠️ Atrasado:</strong> {{ gasto.atrasado ? 'Sí' : 'No' }}</div>
+          </li>
+        </ul>
       </li>
     </ul>
-    <p class="no-data" *ngIf="gastosComunes.length === 0">No se han registrado gastos comunes aún.</p>
-  </div>
+    
 
   <a routerLink="/home" class="btn-home">🏠 Volver al Inicio</a>
 </div>

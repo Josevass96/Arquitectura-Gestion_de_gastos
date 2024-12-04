@@ -138,3 +138,53 @@ button:hover {
 .btn-home:hover {
   background-color: #5a34a6;
 }
+
+.departamentos-list {
+  list-style: none;
+  padding: 0;
+}
+
+.departamento-item {
+  margin: 15px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.departamento-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px;
+  background-color: #f1f5f9;
+  transition: background-color 0.3s ease;
+}
+
+.departamento-header:hover {
+  background-color: #e2e8f0;
+}
+
+.arrow {
+  margin-right: 10px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.gastos-list {
+  padding: 10px 20px;
+  background-color: #ffffff;
+}
+
+.gasto-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.gasto-item:last-child {
+  border-bottom: none;
+}
+

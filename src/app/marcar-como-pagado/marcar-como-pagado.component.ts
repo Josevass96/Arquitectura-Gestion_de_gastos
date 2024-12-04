@@ -33,16 +33,21 @@ export class MarcarComoPagadoComponent {
       anio: this.anio,
       fecha_pago: this.fecha_pago
     };
-
+  
     this.apiService.marcarComoPagado(pagoData).subscribe(
       (response) => {
         this.mensaje = response.mensaje;
         this.error = ''; // Limpiar el error en caso de éxito
       },
       (err) => {
-        this.error = err.error.error || 'Pago duplicado';
+        if (err.status === 409) {
+          this.error = 'Pago duplicado: Este gasto ya fue pagado anteriormente.';
+        } else {
+          this.error = err.error.error || 'Error desconocido al marcar como pagado.';
+        }
         this.mensaje = ''; // Limpiar el mensaje en caso de error
       }
     );
   }
+  
 }

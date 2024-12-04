@@ -1,95 +1,85 @@
-<div class="container py-4">
-  <div class="header text-center mb-5">
-    <h2 class="title">💳 Gestión de Gastos Comunes</h2>
-    <p class="subheading">Gestiona y consulta los gastos comunes de manera eficiente y rápida.</p>
-  </div>
+<div class="gastos-container">
+  <h2 class="mb-4 text-primary font-weight-bold">
+    🏢 Listado de Gastos Comunes Pendientes 🏢
+  </h2>
 
-  <!-- Filtros de búsqueda -->
-  <div class="filter-card">
-    <div class="card-body">
-      <h4 class="filter-title">Filtrar por Fecha</h4>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mb-3">
-          <label for="mes" class="form-label">Mes:</label>
-          <input
-            type="number"
-            id="mes"
-            [(ngModel)]="mes"
-            name="mes"
-            min="1"
-            max="12"
-            class="input-field"
-            placeholder="Ej: 11"
-          />
-        </div>
-        <div class="col-lg-4 col-md-6 mb-3">
-          <label for="anio" class="form-label">Año:</label>
-          <input
-            type="number"
-            id="anio"
-            [(ngModel)]="anio"
-            name="anio"
-            min="2000"
-            class="input-field"
-            placeholder="Ej: 2024"
-          />
-        </div>
+  <div class="form-wrapper">
+      <div class="form-group">
+        <label for="mes" class="font-weight-bold">📅 Mes:</label>
+        <input
+          type="number"
+          id="mes"
+          [(ngModel)]="mes"
+          name="mes"
+          min="1"
+          max="12"
+          class="form-control text-center"
+          placeholder="Ej: 11"
+        />
       </div>
-      <button
-        (click)="listarGastosPendientes()"
-        class="btn btn-search"
-      >
-        <i class="fas fa-search"></i> Buscar Gastos
-      </button>
+      <div class="form-group">
+        <label for="anio" class="font-weight-bold">📆 Año:</label>
+        <input
+          type="number"
+          id="anio"
+          [(ngModel)]="anio"
+          name="anio"
+          min="2000"
+          class="form-control text-center"
+          placeholder="Ej: 2024"
+        />
+      </div>
     </div>
+
+    
+    <button
+  (click)="listarGastosPendientes()"
+  class="btn-toggle"
+>
+  👀 Ver Gastos Comunes Pendientes
+</button>
+
+<div *ngIf="objectKeys(gastosAgrupados).length > 0">
+  <h3 class="list-header">📑 Lista de Gastos Comunes por Departamento</h3>
+  <ul class="departamentos-list">
+    <li *ngFor="let codDepto of objectKeys(gastosAgrupados)" class="departamento-item">
+      <!-- Encabezado del departamento con flecha -->
+      <div class="departamento-header" (click)="toggleExpand(codDepto)">
+        <span class="arrow" [ngClass]="{ 'expanded': isExpanded(codDepto) }">
+          ▶
+        </span>
+        <strong>Departamento:</strong> {{ codDepto }}
+      </div>
+
+      <!-- Mostrar los gastos del departamento solo si está expandido -->
+      <ul *ngIf="isExpanded(codDepto)" class="gastos-list">
+        <li *ngFor="let gasto of gastosAgrupados[codDepto]" class="gasto-item">
+          <div><strong>📅 Mes/Año:</strong> {{ gasto.Mes }}/{{ gasto.Anio }}</div>
+          <div><strong>💵 Valor Pagado:</strong> {{ gasto.ValorPagado | currency }}</div>
+          <div><strong>🗓️ Fecha de Pago:</strong> {{ gasto.FechaPago || 'No pagado' }}</div>
+          <div><strong>⚠️ Atrasado:</strong> 
+            <span
+              [ngClass]="{
+                'badge badge-danger': gasto.Atrasado,
+                'badge badge-success': !gasto.Atrasado
+              }"
+            >
+              {{ gasto.Atrasado ? 'Sí' : 'No' }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+
+  <div *ngIf="objectKeys(gastosAgrupados).length === 0" class="text-center mt-4 alert alert-warning shadow-sm mx-auto">
+    <p class="mb-0">⚠️ No hay montos pendientes para este mes y año.</p>
   </div>
 
-  <!-- Tabla de gastos -->
-  <div *ngIf="gastosPendientes && gastosPendientes.length > 0" class="mt-4">
-    <div class="table-container">
-      <table class="table table-bordered">
-        <thead class="table-header">
-          <tr>
-            <th>Código Departamento</th>
-            <th>Mes</th>
-            <th>Año</th>
-            <th>Valor Pagado</th>
-            <th>Fecha de Pago</th>
-            <th>Atrasado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let gasto of gastosPendientes">
-            <td>{{ gasto.CodDepto }}</td>
-            <td>{{ gasto.Mes }}</td>
-            <td>{{ gasto.Anio }}</td>
-            <td>{{ gasto.ValorPagado | currency:'USD':'symbol' }}</td>
-            <td>{{ gasto.FechaPago || 'No pagado' }}</td>
-            <td>
-              <span
-                [ngClass]="{
-                  'badge badge-warning': gasto.Atrasado,
-                  'badge badge-success': !gasto.Atrasado
-                }"
-              >
-                {{ gasto.Atrasado ? 'Sí' : 'No' }}
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- Mensaje de no datos -->
-  <div *ngIf="gastosPendientes && gastosPendientes.length === 0" class="alert alert-info text-center mt-3">
-    <p class="mb-0">🔔 No hay registros disponibles para este mes y año.</p>
-  </div>
-
-  <!-- Botón de regreso -->
-  <div class="text-center mt-3">
-    <a routerLink="/home" class="btn btn-back">
-      <i class="fas fa-arrow-left"></i> Regresar
-    </a>
+  <div class="text-center mt-4">
+    <a routerLink="/home" class="btn btn-home">⬅️ Volver al Inicio</a>
   </div>
 </div>
