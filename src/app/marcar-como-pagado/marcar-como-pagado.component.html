@@ -1,35 +1,35 @@
-<div class="container">
-  <h2>Marcar Gasto Común como Pagado</h2>
+<div class="payment-container">
+  <h2>Confirmar Pago de Gasto Común</h2>
 
   <!-- Mensajes de éxito o error -->
-  <div *ngIf="mensaje" class="alert alert-success">
+  <div *ngIf="mensaje" class="alert success">
     {{ mensaje }}
   </div>
-  <div *ngIf="error" class="alert alert-danger">
+  <div *ngIf="error" class="alert error">
     {{ error }}
   </div>
 
   <form (ngSubmit)="marcarComoPagado()">
-    <div class="form-group">
+    <div class="form-section">
       <label for="CodDepto">Código de Departamento:</label>
-      <input type="text" id="CodDepto" class="form-control" [(ngModel)]="CodDepto" name="CodDepto" required>
+      <input type="text" id="CodDepto" [(ngModel)]="CodDepto" name="CodDepto" required placeholder="Ingresa el código del departamento">
     </div>
 
-    <div class="form-group">
+    <div class="form-section">
       <label for="mes">Mes:</label>
-      <input type="number" id="mes" class="form-control" [(ngModel)]="mes" name="mes" min="1" max="12" required>
+      <input type="number" id="mes" [(ngModel)]="mes" name="mes" min="1" max="12" required placeholder="1-12">
     </div>
 
-    <div class="form-group">
+    <div class="form-section">
       <label for="anio">Año:</label>
-      <input type="number" id="anio" class="form-control" [(ngModel)]="anio" name="anio" required>
+      <input type="number" id="anio" [(ngModel)]="anio" name="anio" required placeholder="Ej. 2024">
     </div>
 
-    <div class="form-group">
+    <div class="form-section">
       <label for="fecha_pago">Fecha de Pago:</label>
-      <input type="date" id="fecha_pago" class="form-control" [(ngModel)]="fecha_pago" name="fecha_pago" required>
+      <input type="date" id="fecha_pago" [(ngModel)]="fecha_pago" name="fecha_pago" required>
     </div>
 
-    <button type="submit" class="btn btn-primary">Marcar como Pagado</button>
+    <button type="submit" class="submit-btn">Marcar como Pagado</button>
   </form>
 </div>
