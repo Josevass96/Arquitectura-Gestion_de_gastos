@@ -3,21 +3,25 @@
   <p class="lead mb-5">Selecciona una opción para gestionar los aspectos del edificio:</p>
 
   <!-- Contenedor para los botones -->
-  <div class="btn-group-vertical d-grid gap-3">
+  <div class="btn-grid">
     <div class="row">
       <div class="col">
-        <a routerLink="/departamentos" class="btn btn-departamentos btn-lg">Departamentos</a>
-      </div>
-      <div class="col">
-        <a routerLink="/gastos-comunes" class="btn btn-gastos-comunes btn-lg">Gastos Comunes</a>
+        <a routerLink="/departamentos" class="btn btn-option">Departamentos</a>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <a routerLink="/marcar-como-pagado" class="btn btn-gestion-pago btn-lg">Gestion de pagos</a>
+        <a routerLink="/gastos-comunes" class="btn btn-option">Gastos Comunes</a>
       </div>
+    </div>
+    <div class="row">
       <div class="col">
-        <a routerLink="/listar-gastos-pendientes" class="btn btn-gastos-pendientes btn-lg">Gastos por pagar</a>
+        <a routerLink="/marcar-como-pagado" class="btn btn-option">Gestión de Pagos</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a routerLink="/listar-gastos-pendientes" class="btn btn-option">Gastos por Pagar</a>
       </div>
     </div>
   </div>
