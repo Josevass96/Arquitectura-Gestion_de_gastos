@@ -33,10 +33,15 @@ export class MarcarComoPagadoComponent {
       anio: this.anio,
       fecha_pago: this.fecha_pago
     };
-  
+
     this.apiService.marcarComoPagado(pagoData).subscribe(
       (response) => {
-        this.mensaje = response.mensaje;
+        // Suponiendo que la respuesta incluye si el pago fue a tiempo o atrasado
+        if (response.atrasado) {
+          this.mensaje = `El pago fue realizado, pero está atrasado. Fecha de pago: ${this.fecha_pago}.`;
+        } else {
+          this.mensaje = `El pago fue realizado a tiempo. Fecha de pago: ${this.fecha_pago}.`;
+        }
         this.error = ''; // Limpiar el error en caso de éxito
       },
       (err) => {
@@ -49,5 +54,4 @@ export class MarcarComoPagadoComponent {
       }
     );
   }
-  
 }

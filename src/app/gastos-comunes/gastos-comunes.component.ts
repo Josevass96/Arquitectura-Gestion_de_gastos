@@ -25,16 +25,27 @@ export class GastosComunesComponent implements OnInit {
   }
 
   crearGastosComunes(): void {
+    // Verificar si ya existen gastos para el año y mes seleccionado
+    const gastosExistentes = this.gastosComunes.find(
+      (gasto) => gasto.anio === this.anio && (this.mes > 0 ? gasto.mes === this.mes : true)
+    );
+  
+    if (gastosExistentes) {
+      alert('Ya existen gastos comunes para este año y mes. No se puede sobrescribir.');
+      return; // Si ya existen, no crear los gastos nuevamente
+    }
+  
+    // Si no existen, crear nuevos gastos
     const gasto: any = { anio: this.anio };
     if (this.mes > 0) {
       gasto.mes = this.mes;
     }
-
+  
     this.apiService.createGastosComunes(gasto).subscribe(
       (response) => {
         console.log('Gastos comunes creados con éxito:', response);
         alert(response.mensaje);
-        this.obtenerGastosComunes();
+        this.obtenerGastosComunes(); // Actualizar lista después de crear
       },
       (error) => {
         console.error('Error al crear los gastos comunes:', error);

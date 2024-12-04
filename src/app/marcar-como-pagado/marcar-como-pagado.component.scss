@@ -82,3 +82,20 @@ input {
     background: linear-gradient(to right, #5a34a6, #0056b3); /* Morado oscuro a Azul oscuro */
   }
 }
+
+.btn-home {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 20px;
+  background-color: #6f42c1;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-home:hover {
+  background-color: #5a34a6;
+}

@@ -133,7 +133,6 @@ def crear_departamentos():
     db.session.commit()
     return jsonify({'mensaje': 'Departamentos creados exitosamente'}), 201
 
-
 @app.route('/listar_departamentos', methods=['GET'])
 def listar_departamentos():
     """
@@ -208,7 +207,9 @@ def marcar_como_pagado():
     gasto.fecha_pago = data['fecha_pago']
     db.session.commit()
 
-    return jsonify({'mensaje': 'Gasto común marcado como pagado'}), 200
+    # Devolver la respuesta con el estado atrasado
+    return jsonify({'mensaje': 'Gasto común marcado como pagado', 'atrasado': gasto.atrasado}), 200
+
 
 @app.route('/listar_gastos_pendientes', methods=['POST'])
 def listar_gastos_pendientes():
@@ -259,7 +260,5 @@ def listar_gastos_pendientes():
 
     return jsonify({'gastos_pendientes': lista_gastos}), 200
 
-
- 
 if __name__ == '__main__':
     app.run(debug=True)
