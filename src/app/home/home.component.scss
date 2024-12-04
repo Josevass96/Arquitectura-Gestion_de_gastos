@@ -1,125 +1,93 @@
-/* Estilo personalizado para la página de inicio */
+/* Estilo global */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f06, #f79c42); /* Gradiente suave de colores */
+  background: linear-gradient(135deg, #f3ecff, #dcd0ff); /* Gradiente suave pastel */
   margin: 0;
   padding: 0;
 }
 
+/* Contenedor principal */
 .container {
-  max-width: 900px;
+  max-width: 800px;
   margin: 50px auto;
-  padding: 50px;
-  font-family: 'Poppins', sans-serif;
-  text-align: center;
+  padding: 40px 30px;
   background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease; /* Suaviza las transiciones del contenedor */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* Título */
 .display-4 {
   font-weight: 700;
-  color: #333;
-  margin-bottom: 25px;
-  font-size: 2.5rem;
+  color: #4b2e83;
+  margin-bottom: 20px;
 }
 
 .lead {
   font-size: 1.2rem;
-  color: #555;
+  color: #6b6b6b;
   margin-bottom: 40px;
 }
 
-/* Rejilla de botones con mayor espacio */
-.btn-group-vertical {
-  display: flex;
-  flex-direction: column;
-  gap: 40px; /* Aumentar el espacio entre filas */
+/* Grid para los botones */
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 40px; /* Aumenta más el espacio entre los botones */
-  margin-bottom: 40px; /* Añadir más espacio entre las filas */
-}
-
-.col {
-  flex: 1;
-  padding: 0 15px; /* Aumenta el espaciado entre los botones */
-}
-
-/* Estilos personalizados para cada botón */
-.btn {
+/* Estilos para cada botón */
+.btn-option {
+  display: block;
+  padding: 20px;
   font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 12px;
-  padding: 20px 30px;
+  font-weight: bold;
   text-align: center;
-  transition: all 0.3s ease;
   color: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
   text-transform: uppercase;
-  border: 2px solid transparent;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
   cursor: pointer;
-  margin: 15px 0; /* Mayor espacio alrededor de los botones */
 }
 
-.btn:hover {
-  opacity: 0.9;
-  transform: translateY(-6px); /* Elevación más fuerte */
+/* Botón Departamentos */
+.btn-option:nth-child(1) {
+  background-color: #6c5ce7; /* Morado suave */
 }
 
-/* Botón de Departamentos */
-.btn-departamentos {
-  background-color: #6c5ce7;  /* Color vibrante */
-  border-color: #6c5ce7;
-}
-
-.btn-departamentos:hover {
+.btn-option:nth-child(1):hover {
   background-color: #5b4cb1;
-  border-color: #5b4cb1;
+  transform: translateY(-5px);
 }
 
-/* Botón de Gastos Comunes */
-.btn-gastos-comunes {
-  background-color: #fd79a8;  /* Rosa suave */
-  border-color: #fd79a8;
+/* Botón Gastos Comunes */
+.btn-option:nth-child(2) {
+  background-color: #ff7675; /* Naranja cálido */
 }
 
-.btn-gastos-comunes:hover {
-  background-color: #e84393;
-  border-color: #e84393;
-}
-
-/* Botón de Gestión de Pago */
-.btn-gestion-pago {
-  background-color: #00b894;  /* Verde menta */
-  border-color: #00b894;
-}
-
-.btn-gestion-pago:hover {
-  background-color: #00a77a;
-  border-color: #00a77a;
-}
-
-/* Botón de Gastos Pendientes */
-.btn-gastos-pendientes {
-  background-color: #ff7675;  /* Naranja cálido */
-  border-color: #ff7675;
-}
-
-.btn-gastos-pendientes:hover {
+.btn-option:nth-child(2):hover {
   background-color: #e74c3c;
-  border-color: #e74c3c;
+  transform: translateY(-5px);
 }
 
-/* Agregar animaciones suaves */
-.container {
-  transition: all 0.3s ease;
+/* Botón Gestión de Pagos */
+.btn-option:nth-child(3) {
+  background-color: #00cec9; /* Verde menta */
 }
 
-.container:hover {
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+.btn-option:nth-child(3):hover {
+  background-color: #00a77a;
+  transform: translateY(-5px);
+}
+
+/* Botón Gastos por Pagar */
+.btn-option:nth-child(4) {
+  background-color: #fdcb6e; /* Amarillo suave */
+}
+
+.btn-option:nth-child(4):hover {
+  background-color: #f1c40f;
+  transform: translateY(-5px);
 }
