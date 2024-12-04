@@ -1,0 +1,136 @@
+/* Estilo global */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+/* Contenedor de la página */
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Título de la página */
+.page-title {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Estilos del botón de Crear Departamento */
+.btn-create {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 35px;
+  background-color: #007bff; /* Color azul profesional */
+  color: white;
+  border-radius: 50px; /* Mayor redondeo */
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-create:hover {
+  background-color: #0056b3;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos de la tabla */
+.table-wrapper {
+  margin-top: 30px;
+  overflow-x: auto; /* Hace que la tabla sea desplazable en pantallas pequeñas */
+}
+
+.departamentos-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.departamentos-table th,
+.departamentos-table td {
+  padding: 16px 24px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+  color: #333; /* Cambiar color del texto a un gris oscuro */
+}
+
+.departamentos-table th {
+  background-color: #28a745; /* Fondo verde más fuerte */
+  color: white; /* Aseguramos que el texto en los encabezados sea blanco */
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase; /* Para que las letras se vean más destacadas */
+}
+
+.departamentos-table td {
+  font-size: 14px;
+  color: #333; /* Aseguramos que el color del texto sea gris oscuro en las celdas */
+}
+
+.departamentos-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.departamentos-table tr:hover {
+  background-color: #f1f1f1;
+  transition: background-color 0.3s ease;
+}
+
+/* Resaltar las celdas con información importante */
+.departamentos-table td:nth-child(4), /* Arrendado */
+.departamentos-table td:nth-child(5), /* RutProp */
+.departamentos-table td:nth-child(6), /* Estado */
+.departamentos-table td:nth-child(7) { /* RutArre */
+  font-weight: bold;
+  color: #28a745; /* Color verde para resaltar */
+}
+
+.departamentos-table td:nth-child(4):hover,
+.departamentos-table td:nth-child(5):hover,
+.departamentos-table td:nth-child(6):hover,
+.departamentos-table td:nth-child(7):hover {
+  color: #1c7430; /* Cambio de color verde al pasar el mouse */
+}
+
+/* Estilos del botón de regreso al inicio */
+.btn-home {
+  display: block;
+  margin: 40px auto;
+  padding: 15px 40px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50px; /* Mayor redondeo */
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  width: 200px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-home:hover {
+  background-color: #218838;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
