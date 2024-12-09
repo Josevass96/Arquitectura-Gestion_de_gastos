@@ -1,113 +1,116 @@
 /* Contenedor principal */
 .container {
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #e7d6f7; /* Morado pastel */
-  color: #2a004f; /* Texto en morado oscuro para contraste */
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Más ancho */
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #f5f3ef; /* Fondo claro pastel */
+  color: #4b3d33; /* Texto marrón suave */
+  border-radius: 15px; /* Bordes menos redondeados */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
 }
 
-/* Título de la página */
 .page-title {
-  text-align: center;
-  font-size: 28px;
+  text-align: left; /* Alineado a la izquierda */
+  font-size: 26px;
   font-weight: bold;
-  color: #6a0dad; /* Morado medio */
-  margin-bottom: 30px;
+  color: #c2957f; /* Tono cálido pastel */
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d9c4b2; /* Línea decorativa */
+  padding-bottom: 10px;
 }
 
-/* Estilo del botón de Crear Departamento */
 .btn-create {
-  display: block;
-  margin: 0 auto 20px;
-  padding: 12px 40px;
-  background-color: #b080e3; /* Morado suave */
+  display: inline-block; /* Ajustado al contenido */
+  margin: 20px 0;
+  padding: 10px 30px;
+  background-color: #c2957f; /* Botón cálido pastel */
   color: white;
-  border: none;
-  border-radius: 30px;
-  font-size: 18px;
+  border: 2px solid #b2846e; /* Borde claro */
+  border-radius: 20px; /* Bordes moderados */
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra moderada */
 }
 
 .btn-create:hover {
-  background-color: #9a70d3; /* Hover más intenso */
-  transform: scale(1.05);
+  background-color: #b2846e; /* Hover más oscuro */
+  transform: translateY(-2px); /* Efecto hover */
 }
 
-/* Estilo de la tabla */
 .table-wrapper {
-  margin-top: 20px;
+  margin-top: 25px;
   overflow-x: auto;
+  border: 1px solid #dcd4c8; /* Borde decorativo */
+  padding: 15px; /* Espaciado adicional */
+  border-radius: 10px;
 }
 
 .departamentos-table {
   width: 100%;
-  border-collapse: collapse;
-  background-color: #ffffff; /* Fondo blanco para mayor contraste */
+  border-collapse: separate; /* Espaciado entre celdas */
+  border-spacing: 0 10px; /* Espaciado vertical */
+  background-color: #ffffff; /* Fondo blanco */
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 .departamentos-table thead {
-  background-color: #6a0dad; /* Morado medio */
+  background-color: #e2d6c7; /* Encabezado cálido */
 }
 
 .departamentos-table th {
-  padding: 15px;
-  text-align: center;
-  color: white;
-  font-size: 16px;
+  padding: 12px;
+  text-align: left; /* Alineado a la izquierda */
+  color: #4b3d33; /* Texto marrón */
+  font-size: 14px;
   text-transform: uppercase;
 }
 
 .departamentos-table td {
-  padding: 12px;
-  text-align: center;
-  color: #2a004f; /* Texto en morado oscuro */
+  padding: 10px;
+  text-align: left; /* Alineado a la izquierda */
+  color: #4b3d33; /* Texto marrón */
   font-size: 14px;
+  border-bottom: 1px solid #dcd4c8; /* Línea divisoria sutil */
 }
 
 .departamentos-table tr:nth-child(even) {
-  background-color: #f4ecfc; /* Morado muy claro */
+  background-color: #f9f6f3; /* Fondo fila par claro */
 }
 
 .departamentos-table tr:hover {
-  background-color: #e0d1f7; /* Hover en tono pastel */
+  background-color: #f1eae5; /* Efecto hover cálido */
 }
 
-/* Resaltar ciertas celdas */
 .departamentos-table td:nth-child(4),
 .departamentos-table td:nth-child(5),
 .departamentos-table td:nth-child(6),
 .departamentos-table td:nth-child(7) {
   font-weight: bold;
-  color: #6a0dad; /* Morado medio */
+  color: #c2957f; /* Acento cálido */
 }
 
-/* Botón de regreso al inicio */
 .btn-home {
-  display: block;
-  margin: 30px auto;
-  padding: 12px 40px;
-  background-color: #b080e3; /* Botón en morado suave */
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 30px;
+  background-color: #b2846e; /* Botón cálido pastel */
   color: white;
   text-align: center;
   text-decoration: none;
-  border-radius: 30px;
-  font-size: 18px;
+  border: 2px solid #a0755d; /* Borde */
+  border-radius: 20px; /* Bordes moderados */
+  font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra moderada */
   transition: all 0.3s ease;
 }
 
 .btn-home:hover {
-  background-color: #9a70d3;
-  transform: scale(1.05);
+  background-color: #9a6a55; /* Hover más oscuro */
+  transform: translateY(-2px); /* Hover animado */
 }

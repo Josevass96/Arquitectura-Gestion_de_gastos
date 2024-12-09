@@ -1,7 +1,7 @@
 <div class="payment-container">
-  <h2>💳 Confirmar Pago de Gasto Común</h2>
+  <h2> Confirmar Pago de Gasto Común</h2>
 
-  <!-- Mensajes de éxito o error -->
+
   <div *ngIf="mensaje" class="alert success">
     {{ mensaje }}
   </div>
@@ -11,7 +11,7 @@
 
   <form (ngSubmit)="marcarComoPagado()">
     <div class="form-section">
-      <label for="CodDepto">🏠 Código de Departamento:</label>
+      <label for="CodDepto"> Código de Departamento:</label>
       <input
         type="text"
         id="CodDepto"
@@ -23,7 +23,7 @@
     </div>
 
     <div class="form-section">
-      <label for="mes">📅 Mes:</label>
+      <label for="mes"> Mes:</label>
       <input
         type="number"
         id="mes"
@@ -37,7 +37,7 @@
     </div>
 
     <div class="form-section">
-      <label for="anio">📆 Año:</label>
+      <label for="anio"> Año:</label>
       <input
         type="number"
         id="anio"
@@ -49,7 +49,7 @@
     </div>
 
     <div class="form-section">
-      <label for="fecha_pago">💰 Fecha de Pago:</label>
+      <label for="fecha_pago"> Fecha de Pago:</label>
       <input
         type="date"
         id="fecha_pago"
@@ -59,10 +59,10 @@
       />
     </div>
 
-    <button type="submit" class="submit-btn">✔️ Marcar como Pagado</button>
+    <button type="submit" class="submit-btn"> Marcar como Pagado</button>
   </form>
 
   <div class="text-center mt-4">
-    <a routerLink="/home" class="btn btn-home">⬅️ Volver al Inicio</a>
+    <a routerLink="/home" class="btn btn-home"> Volver al Inicio</a>
   </div>
 </div>

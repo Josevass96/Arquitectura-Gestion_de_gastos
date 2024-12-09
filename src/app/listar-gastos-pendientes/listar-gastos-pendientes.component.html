@@ -1,11 +1,11 @@
 <div class="gastos-container">
   <h2 class="mb-4 text-primary font-weight-bold">
-    🏢 Listado de Gastos Comunes Pendientes 🏢
+    Listado de Gastos Comunes Pendientes 
   </h2>
 
   <div class="form-wrapper">
       <div class="form-group">
-        <label for="mes" class="font-weight-bold">📅 Mes:</label>
+        <label for="mes" class="font-weight-bold">Mes:</label>
         <input
           type="number"
           id="mes"
@@ -18,7 +18,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="anio" class="font-weight-bold">📆 Año:</label>
+        <label for="anio" class="font-weight-bold">Año:</label>
         <input
           type="number"
           id="anio"
@@ -35,15 +35,14 @@
     <button
   (click)="listarGastosPendientes()"
   class="btn-toggle"
->
-  👀 Ver Gastos Comunes Pendientes
+> Ver Gastos Comunes Pendientes
 </button>
 
 <div *ngIf="objectKeys(gastosAgrupados).length > 0">
-  <h3 class="list-header">📑 Lista de Gastos Comunes por Departamento</h3>
+  <h3 class="list-header"> Lista de Gastos Comunes por Departamento</h3>
   <ul class="departamentos-list">
     <li *ngFor="let codDepto of objectKeys(gastosAgrupados)" class="departamento-item">
-      <!-- Encabezado del departamento con flecha -->
+      
       <div class="departamento-header" (click)="toggleExpand(codDepto)">
         <span class="arrow" [ngClass]="{ 'expanded': isExpanded(codDepto) }">
           ▶
@@ -51,13 +50,13 @@
         <strong>Departamento:</strong> {{ codDepto }}
       </div>
 
-      <!-- Mostrar los gastos del departamento solo si está expandido -->
+      
       <ul *ngIf="isExpanded(codDepto)" class="gastos-list">
         <li *ngFor="let gasto of gastosAgrupados[codDepto]" class="gasto-item">
-          <div><strong>📅 Mes/Año:</strong> {{ gasto.Mes }}/{{ gasto.Anio }}</div>
-          <div><strong>💵 Valor Pagado:</strong> {{ gasto.ValorPagado | currency }}</div>
-          <div><strong>🗓️ Fecha de Pago:</strong> {{ gasto.FechaPago || 'No pagado' }}</div>
-          <div><strong>⚠️ Atrasado:</strong> 
+          <div><strong> Mes/Año:</strong> {{ gasto.Mes }}/{{ gasto.Anio }}</div>
+          <div><strong> Valor Pagado:</strong> {{ gasto.ValorPagado | currency }}</div>
+          <div><strong> Fecha de Pago:</strong> {{ gasto.FechaPago || 'No pagado' }}</div>
+          <div><strong> Atrasado:</strong> 
             <span
               [ngClass]="{
                 'badge badge-danger': gasto.Atrasado,
@@ -76,10 +75,10 @@
 
 
   <div *ngIf="objectKeys(gastosAgrupados).length === 0" class="text-center mt-4 alert alert-warning shadow-sm mx-auto">
-    <p class="mb-0">⚠️ No hay montos pendientes para este mes y año.</p>
+    <p class="mb-0"> No hay montos pendientes para este mes y año.</p>
   </div>
 
   <div class="text-center mt-4">
-    <a routerLink="/home" class="btn btn-home">⬅️ Volver al Inicio</a>
+    <a routerLink="/home" class="btn btn-home"> Volver al Inicio</a>
   </div>
 </div>

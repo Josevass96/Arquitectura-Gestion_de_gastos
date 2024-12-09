@@ -29,7 +29,7 @@ export class DepartamentosComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.obtenerDepartamentos();  // Llama al método para cargar los departamentos al iniciar
+    this.obtenerDepartamentos();  
   }
 
   obtenerDepartamentos(): void {
@@ -39,14 +39,14 @@ export class DepartamentosComponent implements OnInit {
   }
 
   crearDepartamento(): void {
-    // Enviar los datos al backend para crear el nuevo departamento
+    
     console.log('Datos enviados:', this.nuevoDepto); 
     this.apiService.createDepartamento(this.nuevoDepto).subscribe({
       next: (response) => {
         console.log('Departamento creado con éxito');
-        // Recargar la lista de departamentos después de la creación
-        this.obtenerDepartamentos(); // Actualiza los departamentos mostrando el nuevo
-        // Limpiar el formulario si deseas
+      
+        this.obtenerDepartamentos(); 
+        
         this.nuevoDepto = {
           CodDepto: '',
           Piso: '',
